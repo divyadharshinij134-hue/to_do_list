@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparkling-Times - Organize Your Life</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="task-management-icon.gif" alt="Sparkling-Times">
+                <span class="logo-text">Sparkling-Times</span>
+            </div>
+            <nav class="nav-links">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/dashboard.html" class="nav-link" id="dashboardLink" style="display: none;">Dashboard</a>
+                <a href="/todos.html" class="nav-link" id="todosLink" style="display: none;">My Tasks</a>
+            </nav>
+            <div class="user-section" id="userSection">
+                <div class="welcome-container">
+                    <span class="welcome-text">Welcome back,</span>
+                    <span class="user-name" id="userName">User</span>
+                </div>
+                <button class="logout-btn" id="logoutBtn" title="Logout">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
+                    </svg>
+                    <span>Logout</span>
+                </button>
+            </div>
+            <div class="auth-section" id="authSection" style="display: none;">
+                <a href="/auth.html" class="nav-link">Login / Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Productivity & Organization</h1>
+            <p class="hero-description">
+                Streamline your workflow with Sparkling-Times — your intelligent task management companion. 
+                Create, prioritize, and track your tasks with ease. Stay organized, stay productive.
+            </p>
+            <div class="hero-actions">
+                <a href="/todos.html" class="btn-primary">Start Managing Tasks</a>
+                <a href="#features" class="btn-secondary">
+                    Learn More
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <img src="search-gif.gif" alt="Search" class="search-icon">
+            <input 
+                type="text" 
+                class="search-input" 
+                placeholder="Search tasks, tags, or categories..."
+                id="searchInput"
+            >
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Choose Sparkling-Times?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="task-management-icon.gif" alt="Task Management icon" class="feature-icon-img">
+                    </div>
+                    <h3 class="feature-title">Smart Task Management</h3>
+                    <p class="feature-description">Create, organize, and track all your tasks in one place with intuitive controls.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Priority Levels</h3>
+                    <p class="feature-description">Set priorities (low, medium, high) to focus on what matters most.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="clock-icon.gif" alt="Clock icon" class="feature-icon-img">
+                    </div>
+                    <h3 class="feature-title">Due Dates</h3>
+                    <p class="feature-description">Never miss a deadline with built-in due date tracking and reminders.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h18v18H3zM9 9h6v6H9z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Custom Sorting</h3>
+                    <p class="feature-description">Sort tasks by date, priority, or title to find what you need instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Boost Your Productivity?</h2>
+            <p class="cta-description">Join thousands of users who are already organizing their lives with Sparkling-Times.</p>
+            <a href="/todos.html" class="btn-cta">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Sparkling-Times. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/todos.html">My Tasks</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="homepage.js"></script>
+</body>
+</html>

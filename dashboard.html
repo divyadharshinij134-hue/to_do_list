@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sparkling-Times</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="task-management-icon.gif" alt="Sparkling-Times">
+                <span class="logo-text">Sparkling-Times</span>
+            </div>
+            <nav class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="/todos.html" class="nav-link">My Tasks</a>
+            </nav>
+            <div class="user-section" id="userSection">
+                <div class="welcome-container">
+                    <span class="welcome-text">Welcome back,</span>
+                    <span class="user-name" id="userName">User</span>
+                </div>
+                <button class="logout-btn" id="logoutBtn" title="Logout">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
+                    </svg>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Dashboard</h1>
+            <p class="dashboard-subtitle">Overview of your tasks and productivity</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #060771 0%, #0a0a8a 100%);">
+                    <img src="task-management-icon.gif" alt="Total Tasks" style="inline-size:24px;block-size:24px;object-fit:contain;">
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalTasks">0</h3>
+                    <p>Total Tasks</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #FF6C0C 0%, #ff8533 100%);">
+                    <img src="clock-icon.gif" alt="Clock icon" style="inline-size:24px;block-size:24px;object-fit:contain;">
+                </div>
+                <div class="stat-content">
+                    <h3 id="activeTasks">0</h3>
+                    <p>Active Tasks</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #FFE08F 0%, #ffd966 100%);">
+                    <img src="check-icon.gif" alt="Completed" style="inline-size:24px;block-size:24px;object-fit:contain;">
+                </div>
+                <div class="stat-content">
+                    <h3 id="completedTasks">0</h3>
+                    <p>Completed</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #BF1A1A 0%, #d42a2a 100%);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="6" x2="12" y2="12" />
+                        <line x1="16" y1="14" x2="12" y2="12" />
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <h3 id="highPriorityTasks">0</h3>
+                    <p>High Priority</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #FACC15 0%, #FB923C 100%);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 3a7 7 0 00-5 11.9L12 21l5-6.1A7 7 0 0012 3z" />
+                        <circle cx="12" cy="12" r="2.5" />
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <h3 id="loginStreakCount">0</h3>
+                    <p>Day Streak</p>
+                    <span class="streak-best" id="loginStreakBest">Best 0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Productivity Insights -->
+        <div class="insights-grid">
+            <div class="insight-card productivity-score">
+                <div class="insight-icon">📊</div>
+                <div class="insight-content">
+                    <h3>Productivity Score</h3>
+                    <div class="insight-value" id="productivityScore">0</div>
+                    <p class="insight-label">out of 100</p>
+                </div>
+            </div>
+            <div class="insight-card focus-meter">
+                <div class="insight-icon">🎯</div>
+                <div class="insight-content">
+                    <h3>Focus Meter</h3>
+                    <div class="insight-value" id="focusMeter">0</div>
+                    <p class="insight-label">high priority tasks</p>
+                </div>
+            </div>
+            <div class="insight-card prediction">
+                <div class="insight-icon">⏰</div>
+                <div class="insight-content">
+                    <h3>Estimated Finish</h3>
+                    <div class="insight-value-small" id="estimatedFinish">--:--</div>
+                    <p class="insight-label">today</p>
+                </div>
+            </div>
+            <div class="insight-card trend">
+                <div class="insight-icon">📈</div>
+                <div class="insight-content">
+                    <h3>Trend</h3>
+                    <div class="insight-value-small trend-value" id="trendValue">+0%</div>
+                    <p class="insight-label">vs last week</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="dashboard-grid">
+            <!-- Recent Tasks -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h2>Recent Tasks</h2>
+                    <a href="/todos.html" class="view-all-link">View All</a>
+                </div>
+                <div class="card-content">
+                    <div id="recentTasks" class="tasks-list">
+                        <div class="loading-state">Loading tasks...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h2>Quick Actions</h2>
+                </div>
+                <div class="card-content">
+                    <div class="quick-actions">
+                        <a href="/todos.html" class="action-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            <span>Add New Task</span>
+                        </a>
+                        <button class="action-btn" id="clearCompletedBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
+                            </svg>
+                            <span>Clear Completed</span>
+                        </button>
+                        <button class="action-btn" id="refreshBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10" />
+                                <polyline points="1 20 1 14 7 14" />
+                                <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
+                            </svg>
+                            <span>Refresh Data</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Task Classifier -->
+            <div class="dashboard-card ai-classifier-card">
+                <div class="card-header">
+                    <h2>AI Task Classifier</h2>
+                </div>
+                <div class="card-content">
+                    <form id="classifierForm" class="classifier-form">
+                        <label for="classifierInput" class="classifier-label">Describe your task</label>
+                        <textarea
+                            id="classifierInput"
+                            class="classifier-input"
+                            rows="3"
+                            placeholder="e.g., Follow up with Alex about Q4 budget tomorrow morning, need 45 minutes"
+                            aria-label="Task description for AI classifier"
+                        ></textarea>
+                        <label for="classifierPromptInput" class="classifier-label">Custom prompt (optional)</label>
+                        <input
+                            type="text"
+                            id="classifierPromptInput"
+                            class="classifier-input classifier-prompt-input"
+                            placeholder="Add extra instructions for the AI (e.g., Focus on deadlines first)"
+                            aria-label="Custom prompt instructions"
+                        />
+                        <p class="classifier-hint">Leave blank to use the default smart prompt. Anything you type here will prepend the AI instructions.</p>
+                        <div class="classifier-actions">
+                            <button type="submit" class="action-btn solid">Parse Task</button>
+                            <span id="classifierStatus" class="classifier-status" role="status" aria-live="polite"></span>
+                        </div>
+                    </form>
+                    <div id="classifierResult" class="classifier-result hidden">
+                        <div class="classifier-placeholder">Parsed task details will appear here.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task Distribution -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h2>Task Distribution</h2>
+                </div>
+                <div class="card-content">
+                    <div class="distribution-chart">
+                        <!-- Chart.js doughnut (will be initialized dynamically) -->
+                        <div style="max-inline-size:420px;margin:0 auto 1rem;">
+                            <canvas id="distributionChart" class="distribution-canvas" aria-label="Task distribution chart" role="img"></canvas>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label">
+                                <span class="chart-color" style="background: #FF6C0C;"></span>
+                                <span>Active</span>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="chart-fill" id="activeFill" style="background:#FF6C0C;inline-size:0%;"></div>
+                            </div>
+                            <span class="chart-value" id="activePercent">0%</span>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-label">
+                                <span class="chart-color" style="background: #FFE08F;"></span>
+                                <span>Completed</span>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="chart-fill" id="completedFill" style="background:#FFE08F;inline-size:0%;"></div>
+                            </div>
+                            <span class="chart-value" id="completedPercent">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Priority Breakdown -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h2>Priority Breakdown</h2>
+                </div>
+                <div class="card-content">
+                    <div class="priority-breakdown">
+                        <div class="priority-item">
+                            <div class="priority-label">
+                                <span class="priority-badge high">High</span>
+                                <span class="priority-count" id="highCount">0</span>
+                            </div>
+                        </div>
+                        <div class="priority-item">
+                            <div class="priority-label">
+                                <span class="priority-badge medium">Medium</span>
+                                <span class="priority-count" id="mediumCount">0</span>
+                            </div>
+                        </div>
+                        <div class="priority-item">
+                            <div class="priority-label">
+                                <span class="priority-badge low">Low</span>
+                                <span class="priority-count" id="lowCount">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
+
